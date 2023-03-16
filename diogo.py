@@ -32,7 +32,7 @@ class EnderecoSchema(BaseModel):
 
 class PessoaSchema(BaseModel):
     id: int
-    name: str = ""
+    nome: str = ""
 
     enderecos: List[EnderecoSchema] = None
 
@@ -40,9 +40,6 @@ class PessoaSchema(BaseModel):
         orm_mode = True
     
 temp = PessoaSchema(id=1, name="teste", enderecos=[EnderecoSchema()])
-pessoa = Pessoa()
-for k, v in temp.dict().items():
-    print(k,v)
-    setattr(pessoa, k, v)
+
 
 Pessoa(**temp.__dict__)
